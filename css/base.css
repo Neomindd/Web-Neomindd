@@ -35,11 +35,12 @@
 
 html {
   scroll-behavior: smooth;
+  background-color: #020510;
 }
 
 body {
   font-family: "DM Sans", sans-serif;
-  background-color: transparent;
+  background-color: #020510;
   color: white;
 }
 

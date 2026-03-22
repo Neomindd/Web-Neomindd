@@ -274,7 +274,15 @@
     }
   }, { passive: true });
 
-  window.addEventListener('resize', resize);
+  let lastW = window.innerWidth;
+  let resizeTimer = null;
+  window.addEventListener('resize', () => {
+    // Ignorar si solo cambió el alto (barra URL del móvil ocultándose)
+    if (window.innerWidth === lastW) return;
+    lastW = window.innerWidth;
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(resize, 150);
+  });
 
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) {
