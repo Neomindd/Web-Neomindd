@@ -1,0 +1,658 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NeoMind — Tecnología y Desarrollo</title>
+    <link rel="stylesheet" href="css/base.css" />
+  </head>
+  <body>
+    <canvas id="trail" style="display: none"></canvas>
+    <canvas id="cv"></canvas>
+    <header>
+      <nav>
+        <a href="index.html" class="logo-nav">
+          <img src="img/Logo page NAVBAR.png" alt="NeoMind" />
+        </a>
+
+        <ul>
+          <li><a href="#inicio" data-i18n="nav.inicio">Inicio</a></li>
+          <li><a href="#nosotros" data-i18n="nav.nosotros">Nosotros</a></li>
+          <li>
+            <a href="#soluciones" data-i18n="nav.soluciones">Soluciones</a>
+          </li>
+          <li>
+            <a href="#portafolio" data-i18n="nav.portafolio">Portafolio</a>
+          </li>
+          <li><a href="#contacto" data-i18n="nav.contacto">Contacto</a></li>
+        </ul>
+
+        <button id="lang-toggle" class="lang-btn">EN</button>
+      </nav>
+    </header>
+
+    <main>
+      <!-- INICIO -->
+      <section id="inicio" class="hero">
+        <h1 data-i18n-html="hero.title">
+          Tecnología que <span class="texto-gradiente">transforma</span>
+        </h1>
+        <p data-i18n="hero.subtitle">
+          Creación de sitios web, aplicaciones y soluciones digitales para hacer
+          crecer tu negocio.
+        </p>
+        <a href="#contacto" class="btn-primario" data-i18n="hero.cta"
+          >Hablemos</a
+        >
+      </section>
+
+      <!-- NOSOTROS -->
+      <section id="nosotros" class="sobre-nm">
+        <canvas class="nm-bg-canvas" id="nmBgCv"></canvas>
+        <canvas class="nm-net-canvas" id="nmNetCv"></canvas>
+        <div class="nm-contenedor">
+          <div class="nm-sec-header">
+            <div class="nm-tag">
+              <div class="nm-tag-dot"></div>
+              <span data-i18n="nm.tag">// SOBRE NEOMIND</span>
+            </div>
+            <h2 class="nm-title" data-i18n-html="nm.title">
+              Tecnología que<br /><span class="texto-gradiente"
+                >resuelve problemas reales</span
+              >
+            </h2>
+            <p class="nm-sub" data-i18n="nm.sub">
+              No vendemos páginas web. Construimos herramientas digitales que
+              hacen que tu negocio trabaje más inteligente.
+            </p>
+          </div>
+
+          <div class="historia-grid">
+            <div class="h-card violeta">
+              <div class="h-card-tag" data-i18n="origen.tag">ORIGEN</div>
+              <h3 data-i18n="origen.title">¿Por qué existe Neomind?</h3>
+              <p data-i18n-html="origen.text">
+                Neomind nació de una pregunta simple:
+                <strong
+                  >¿por qué tantas empresas siguen haciendo manualmente cosas
+                  que una herramienta digital podría hacer sola?</strong
+                >
+                Vimos negocios perdiendo horas en tareas repetitivas, con
+                páginas lentas o sin presencia digital. Decidimos hacer algo al
+                respecto.
+              </p>
+            </div>
+
+            <div class="h-card cyan">
+              <div class="h-card-tag" data-i18n="vision.tag">VISIÓN</div>
+              <h3 data-i18n="vision.title">A dónde vamos</h3>
+              <p data-i18n-html="vision.text">
+                Queremos ser la agencia de referencia para
+                <strong>pequeñas y medianas empresas </strong> que quieren dar
+                el salto digital, con tecnología de alto nivel, al alcance de
+                cualquier negocio.
+              </p>
+            </div>
+
+            <div class="h-card magenta full">
+              <div class="h-card-tag" data-i18n="mision.tag">MISIÓN</div>
+              <h3 data-i18n="mision.title">Lo que hacemos cada día</h3>
+              <p data-i18n-html="mision.text">
+                Construimos webs y aplicaciones que
+                <strong
+                  >reducen tiempos de trabajo, automatizan procesos y abren
+                  nuevos canales de venta.</strong
+                >
+                Cada proyecto que entregamos tiene que resolver un problema
+                real, cargar rápido, verse bien en cualquier pantalla y ser
+                seguro desde el primer día.
+              </p>
+            </div>
+          </div>
+
+          <div class="nm-metricas">
+            <div class="met">
+              <span class="met-num">100%</span
+              ><span class="met-label" data-i18n="met.proyectos"
+                >PROYECTOS ENTREGADOS</span
+              >
+            </div>
+            <div class="met">
+              <span class="met-num">&lt;24h</span
+              ><span class="met-label" data-i18n="met.respuesta"
+                >TIEMPO DE RESPUESTA</span
+              >
+            </div>
+            <div class="met">
+              <span class="met-num">0</span
+              ><span class="met-label" data-i18n="met.intermediarios"
+                >INTERMEDIARIOS</span
+              >
+            </div>
+            <div class="met">
+              <span class="met-num">&lt;2s</span
+              ><span class="met-label" data-i18n="met.carga"
+                >CARGA PROMEDIO</span
+              >
+            </div>
+          </div>
+
+          <div class="proceso-wrap">
+            <div class="proceso-header">
+              <h3 data-i18n-html="proceso.title">
+                Cómo <span class="texto-gradiente">trabajamos</span>
+              </h3>
+              <p data-i18n="proceso.sub">
+                Un proceso claro de principio a fin. Sabés en todo momento en
+                qué etapa está tu proyecto.
+              </p>
+            </div>
+            <div class="pasos">
+              <div class="paso">
+                <div class="paso-num">01</div>
+                <div class="paso-titulo" data-i18n="paso1.titulo">
+                  Reunión inicial
+                </div>
+                <div class="paso-desc" data-i18n="paso1.desc">
+                  Entendemos tu negocio, objetivos y lo que necesitás resolver
+                </div>
+              </div>
+              <div class="paso">
+                <div class="paso-num">02</div>
+                <div class="paso-titulo" data-i18n="paso2.titulo">
+                  Propuesta
+                </div>
+                <div class="paso-desc" data-i18n="paso2.desc">
+                  Alcance, tecnologías, plazo y precio. Sin letras chicas
+                </div>
+              </div>
+              <div class="paso">
+                <div class="paso-num">03</div>
+                <div class="paso-titulo" data-i18n="paso3.titulo">Diseño</div>
+                <div class="paso-desc" data-i18n="paso3.desc">
+                  Wireframes y diseño visual. Apruebas antes de comenzar a
+                  crear.
+                </div>
+              </div>
+              <div class="paso">
+                <div class="paso-num">04</div>
+                <div class="paso-titulo" data-i18n="paso4.titulo">
+                  Desarrollo
+                </div>
+                <div class="paso-desc" data-i18n="paso4.desc">
+                  Código limpio, seguro y rápido. Con acceso para que veas el
+                  avance.
+                </div>
+              </div>
+              <div class="paso">
+                <div class="paso-num">05</div>
+                <div class="paso-titulo" data-i18n="paso5.titulo">
+                  Revisión y aprobación
+                </div>
+                <div class="paso-desc" data-i18n="paso5.desc">
+                  Revisás el proyecto completo y aprueba antes del lanzamiento.
+                </div>
+              </div>
+              <div class="paso">
+                <div class="paso-num">06</div>
+                <div class="paso-titulo" data-i18n="paso6.titulo">Entrega</div>
+                <div class="paso-desc" data-i18n="paso6.desc">
+                  Deploy, dominio, HTTPS y siete días de soporte
+                  post-lanzamiento incluido
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="dif-wrap">
+            <div class="dif-header">
+              <h3 data-i18n-html="dif.title">
+                Por qué <span class="texto-gradiente">elegirnos</span>
+              </h3>
+              <p data-i18n="dif.sub">
+                Lo que nos diferencia no son las palabras, son las decisiones
+                que tomamos en cada proyecto.
+              </p>
+            </div>
+            <div class="dif-grid">
+              <div class="dif-item" style="--accent: var(--color-neon)">
+                <div class="dif-num">01 //</div>
+                <span class="dif-icon">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                  >
+                    <path
+                      d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                    />
+                    <path d="M8 10h.01M12 10h.01M16 10h.01" />
+                  </svg>
+                </span>
+                <h4 data-i18n="dif1.title">Hablas con quien hace el trabajo</h4>
+                <p data-i18n="dif1.text">
+                  Sin account managers ni cadenas de correos. La persona que te
+                  responde es la misma que diseña y desarrolla tu proyecto.
+                </p>
+              </div>
+              <div class="dif-item" style="--accent: var(--color-cyan)">
+                <div class="dif-num">02 //</div>
+                <span class="dif-icon">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                  >
+                    <path
+                      d="M12 2l8 4v6c0 5-3.6 9.3-8 11-4.4-1.7-8-6-8-11V6l8-4z"
+                    />
+                    <path d="M9 12l2 2 4-4" />
+                  </svg>
+                </span>
+                <h4 data-i18n="dif2.title">Seguridad desde el día uno</h4>
+                <p data-i18n="dif2.text">
+                  HTTPS, protección contra ataques, código sin vulnerabilidades.
+                  No es un extra — es parte del estándar de cada proyecto.
+                </p>
+              </div>
+              <div class="dif-item" style="--accent: var(--color-pink)">
+                <div class="dif-num">03 //</div>
+                <span class="dif-icon">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                  >
+                    <rect x="2" y="5" width="13" height="9" rx="1.5" />
+                    <path d="M8 14v2M5 16h6" />
+                    <rect x="16" y="8" width="6" height="10" rx="1.5" />
+                    <path d="M19 16.5h.01" />
+                  </svg>
+                </span>
+                <h4 data-i18n="dif3.title">Funciona en cualquier pantalla</h4>
+                <p data-i18n="dif3.text">
+                  Cada web que entregamos es 100% responsiva. Se ve igual de
+                  bien en un celular viejo que en un monitor 4K.
+                </p>
+              </div>
+              <div class="dif-item" style="--accent: var(--color-green)">
+                <div class="dif-num">04 //</div>
+                <span class="dif-icon">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                  >
+                    <path d="M5 17A7 7 0 1 1 19 17" />
+                    <path d="M12 17l-3-5.2" />
+                    <circle
+                      cx="12"
+                      cy="17"
+                      r="1.3"
+                      fill="currentColor"
+                      stroke="none"
+                    />
+                    <path
+                      d="M7 9.5l.5.5M17 9.5l-.5.5M5.5 14H6.5M17.5 14H18.5"
+                    />
+                  </svg>
+                </span>
+                <h4 data-i18n="dif4.title">Velocidad que se nota</h4>
+                <p data-i18n="dif4.text">
+                  Webs que cargan en menos de 2 segundos. Porque la velocidad
+                  afecta directamente tus ventas y tu posicionamiento en Google.
+                </p>
+              </div>
+              <div class="dif-item" style="--accent: var(--color-violet)">
+                <div class="dif-num">05 //</div>
+                <span class="dif-icon">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                  >
+                    <path d="M7 8l-4 4 4 4" />
+                    <path d="M17 8l4 4-4 4" />
+                    <path d="M14 4l-4 16" />
+                  </svg>
+                </span>
+                <h4 data-i18n="dif5.title">Código que puedes mantener</h4>
+                <p data-i18n="dif5.text">
+                  No dejamos código que nadie puede tocar después. Todo
+                  documentado, limpio y fácil de escalar cuando tu negocio
+                  crezca.
+                </p>
+              </div>
+              <div class="dif-item" style="--accent: var(--color-fuchsia)">
+                <div class="dif-num">06 //</div>
+                <span class="dif-icon">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                  >
+                    <path d="M3 18l4-6 4 3 4-8 4 5" />
+                    <path d="M3 21h18" />
+                    <path d="M19 8l1.5 4.5-4.5 1.5" />
+                  </svg>
+                </span>
+                <h4 data-i18n="dif6.title">Enfocados en resultados</h4>
+                <p data-i18n="dif6.text">
+                  Una web bonita que no convierte no sirve. Cada decisión está
+                  orientada a que tu sitio trabaje para tu negocio.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="nm-cta">
+            <h3 data-i18n-html="nm.cta.title">
+              ¿Tu negocio necesita<br /><span class="texto-gradiente"
+                >dar el salto digital?</span
+              >
+            </h3>
+            <p data-i18n="nm.cta.sub">
+              Cuentanos qué necesitas. Sin formularios complicados, sin esperas.
+              Te respondemos en menos de 24 horas.
+            </p>
+            <div class="nm-cta-btns">
+              <a href="#contacto" class="nm-btn-p" data-i18n="nm.cta.btn1"
+                >Empezar un proyecto →</a
+              >
+              <a href="#portafolio" class="nm-btn-s" data-i18n="nm.cta.btn2"
+                >Ver nuestro trabajo</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SOLUCIONES -->
+      <section id="soluciones" class="servicios">
+        <h2 data-i18n-html="sol.title">
+          Nuestras <span class="texto-gradiente">Soluciones</span>
+        </h2>
+        <p class="subtitulo" data-i18n="sol.sub">
+          Todo lo que necesitas para crecer en el mundo digital
+        </p>
+
+        <div class="cards-grid">
+          <article class="card" style="--ca: var(--color-neon)">
+            <div class="card-img">
+              <img src="img/Sitios web.jpg" alt="Sitios Web" />
+            </div>
+            <span class="card-num">01</span>
+            <div class="card-content">
+              <div class="card-label" data-i18n="sol.card1.label">
+                Diseño & Web
+              </div>
+              <h3 data-i18n="sol.card1.title">Sitios Web</h3>
+              <p data-i18n="sol.card1.text">
+                Landing pages, portafolios y sitios corporativos modernos y
+                rápidos.
+              </p>
+            </div>
+          </article>
+
+          <article class="card" style="--ca: var(--color-cyan)">
+            <div class="card-img">
+              <img src="img/Aplicaciones.jpg" alt="Aplicaciones Web" />
+            </div>
+            <span class="card-num">02</span>
+            <div class="card-content">
+              <div class="card-label" data-i18n="sol.card2.label">
+                Desarrollo
+              </div>
+              <h3 data-i18n="sol.card2.title">Aplicaciones Web</h3>
+              <p data-i18n="sol.card2.text">
+                Sistemas a medida con base de datos, autenticación y lógica de
+                negocio.
+              </p>
+            </div>
+          </article>
+
+          <article class="card" style="--ca: var(--color-pink)">
+            <div class="card-img">
+              <img src="img/Integraciones.jpg" alt="Integraciones" />
+            </div>
+            <span class="card-num">03</span>
+            <div class="card-content">
+              <div class="card-label" data-i18n="sol.card3.label">
+                Conectividad
+              </div>
+              <h3 data-i18n="sol.card3.title">Integraciones</h3>
+              <p data-i18n="sol.card3.text">
+                Conectamos tu negocio con APIs, pagos, CRMs y herramientas
+                externas.
+              </p>
+            </div>
+          </article>
+
+          <article class="card card-ai" style="--ca: var(--color-cyan)">
+            <div class="card-img">
+              <img src="img/IA.2.jpg" alt="Inteligencia Artificial" />
+            </div>
+            <span class="card-num">04</span>
+            <div class="card-content">
+              <div class="card-label" data-i18n="sol.card4.label">
+                Innovación
+              </div>
+              <h3 data-i18n="sol.card4.title">Inteligencia Artificial</h3>
+              <p data-i18n="sol.card4.text">
+                Incorporamos IA como herramienta de trabajo, no como atajo. El
+                criterio y las decisiones siempre son de un profesional.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- PORTAFOLIO -->
+      <section id="portafolio" class="seccion-pagina">
+        <h2 data-i18n-html="port.title">
+          Nuestro <span class="texto-gradiente">Portafolio</span>
+        </h2>
+        <p class="subtitulo" data-i18n="port.sub">
+          Proyectos que hablan por sí solos
+        </p>
+      </section>
+
+      <!-- CONTACTO -->
+      <section id="contacto" class="contacto-section">
+        <div class="contacto-wrap">
+          <!-- Info izquierda -->
+          <div class="contacto-info">
+            <div class="nm-tag">
+              <div class="nm-tag-dot"></div>
+              <span data-i18n="contact.tag">// CONTACTO</span>
+            </div>
+            <h2 data-i18n-html="contact.title">
+              ¿Tienes un proyecto<br /><span class="texto-gradiente"
+                >en mente?</span
+              >
+            </h2>
+            <p class="contacto-sub" data-i18n="contact.sub">
+              Cuentanos qué necesitás. Sin formularios complicados, sin esperas.
+              Te respondemos en menos de 24 horas.
+            </p>
+
+            <ul class="contacto-datos">
+              <li>
+                <span class="cd-icon">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <rect x="2" y="4" width="20" height="16" rx="2" />
+                    <path d="M2 7l10 7 10-7" />
+                  </svg>
+                </span>
+                <span>neomindd@outlook.com</span>
+              </li>
+              <li>
+                <span class="cd-icon">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M12 6v6l4 2" />
+                  </svg>
+                </span>
+                <span data-i18n="contact.response"
+                  >Respuesta en menos de 24h</span
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Formulario derecha -->
+          <div class="contacto-form-wrap">
+            <form id="contacto-form" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="cf-nombre" data-i18n="form.nombre.label"
+                    >Nombre</label
+                  >
+                  <input
+                    type="text"
+                    id="cf-nombre"
+                    name="nombre"
+                    placeholder="Tu nombre"
+                    data-i18n-placeholder="form.nombre.placeholder"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="cf-email" data-i18n="form.email.label"
+                    >Email</label
+                  >
+                  <input
+                    type="email"
+                    id="cf-email"
+                    name="email"
+                    placeholder="tu@correo.com"
+                    data-i18n-placeholder="form.email.placeholder"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="cf-servicio" data-i18n="form.servicio.label"
+                  >¿En qué podemos ayudarte?</label
+                >
+                <select id="cf-servicio" name="servicio" required>
+                  <option
+                    value=""
+                    disabled
+                    selected
+                    data-i18n="form.servicio.default"
+                  >
+                    Seleccioná un servicio
+                  </option>
+                  <option value="Sitio Web" data-i18n="form.servicio.web">
+                    Sitio Web
+                  </option>
+                  <option value="Aplicación Web" data-i18n="form.servicio.app">
+                    Aplicación Web
+                  </option>
+                  <option
+                    value="Integración / API"
+                    data-i18n="form.servicio.api"
+                  >
+                    Integración / API
+                  </option>
+                  <option
+                    value="Inteligencia Artificial"
+                    data-i18n="form.servicio.ia"
+                  >
+                    Inteligencia Artificial
+                  </option>
+                  <option value="Otro" data-i18n="form.servicio.otro">
+                    Otro
+                  </option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="cf-mensaje" data-i18n="form.mensaje.label"
+                  >Mensaje</label
+                >
+                <textarea
+                  id="cf-mensaje"
+                  name="mensaje"
+                  rows="5"
+                  placeholder="Cuentanos un poco sobre tu proyecto..."
+                  data-i18n-placeholder="form.mensaje.placeholder"
+                  required
+                ></textarea>
+              </div>
+
+              <button type="submit" class="form-btn">
+                <span class="form-btn-text" data-i18n="form.btn"
+                  >Enviar mensaje</span
+                >
+                <svg
+                  class="form-btn-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M22 2L11 13" />
+                  <path d="M22 2L15 22l-4-9-9-4 20-7z" />
+                </svg>
+              </button>
+
+              <div
+                id="form-status"
+                class="form-status"
+                aria-live="polite"
+              ></div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-contenido">
+        <img src="img/LogoRRSS edit.png" alt="NeoMind" />
+        <p data-i18n="footer.tagline">Tecnología y Desarrollo</p>
+        <p class="footer-copy">
+          © <span id="year"></span> NeoMind. Todos los derechos reservados.
+        </p>
+      </div>
+    </footer>
+    <script src="js/i18n.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/binary-bg.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+      integrity="sha384-SALc35EccAf6RzGw4iNsyj7kTPr33K7RoGzYu+7heZhT8s0GZouafRiCg1qy44AS"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/config.js"></script>
+    <script src="js/contacto.js"></script>
+  </body>
+</html>
