@@ -13,8 +13,17 @@
 
   if (!form) return;
 
+  let lastSent = 0;
+  const COOLDOWN = 30000; // 30 segundos entre envíos
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
+
+    if (Date.now() - lastSent < COOLDOWN) {
+      const segsRestantes = Math.ceil((COOLDOWN - (Date.now() - lastSent)) / 1000);
+      showStatus(`Espera ${segsRestantes}s antes de volver a enviar.`, 'err');
+      return;
+    }
 
     // Validacion basica
     const nombre   = form.nombre.value.trim();
@@ -45,6 +54,7 @@
         mensaje,
       });
 
+      lastSent = Date.now();
       showStatus(window.t('form.success'), 'ok');
       form.reset();
     } catch (err) {

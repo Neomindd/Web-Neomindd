@@ -8,8 +8,9 @@ document.getElementById('year').textContent = new Date().getFullYear();
   if (!toggle || !menu) return;
 
   toggle.addEventListener('click', () => {
+    const isOpen = menu.classList.toggle('open');
     toggle.classList.toggle('open');
-    menu.classList.toggle('open');
+    toggle.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
   });
 
   // Cerrar el menú al hacer click en un enlace
@@ -17,6 +18,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
     link.addEventListener('click', () => {
       toggle.classList.remove('open');
       menu.classList.remove('open');
+      toggle.setAttribute('aria-label', 'Abrir menú');
     });
   });
 })();
@@ -38,7 +40,8 @@ document.getElementById('year').textContent = new Date().getFullYear();
   let nodes = [], bokeh = [], sparks = [], blobs = [], pulses = [];
   const MAX_DIST    = 130;
   const MAX_DIST_SQ = MAX_DIST * MAX_DIST; // evita sqrt en el 95% de pares descartados
-  const NODE_COUNT  = 50;                  // fijo — evita O(n²) con secciones altas
+  const LOW_END     = navigator.hardwareConcurrency <= 4; // detecta gama baja
+  const NODE_COUNT  = LOW_END ? 28 : 50;
 
   function init() {
     W = bgCv.width = netCv.width   = sec.offsetWidth;
@@ -63,8 +66,8 @@ document.getElementById('year').textContent = new Date().getFullYear();
       };
     });
 
-    // 8 bokeh — reducido de 14
-    bokeh = Array.from({ length: 8 }, () => ({
+    // bokeh — reducido en gama baja
+    bokeh = Array.from({ length: LOW_END ? 4 : 8 }, () => ({
       x:  Math.random() * W,
       y:  Math.random() * H,
       r:  70 + Math.random() * 90,
@@ -76,8 +79,8 @@ document.getElementById('year').textContent = new Date().getFullYear();
       cb: 190 + ~~(Math.random() * 65),
     }));
 
-    // 20 sparks — reducido de 45
-    sparks = Array.from({ length: 20 }, () => ({
+    // sparks — reducido en gama baja
+    sparks = Array.from({ length: LOW_END ? 8 : 20 }, () => ({
       x:  Math.random() * W,
       y:  Math.random() * H,
       r:  .5 + Math.random() * 1.4,
