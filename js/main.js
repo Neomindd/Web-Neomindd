@@ -1,6 +1,26 @@
 // Año automático en el footer
 document.getElementById('year').textContent = new Date().getFullYear();
 
+// Menú hamburguesa
+(function () {
+  const toggle = document.getElementById('nav-toggle');
+  const menu   = document.querySelector('nav ul');
+  if (!toggle || !menu) return;
+
+  toggle.addEventListener('click', () => {
+    toggle.classList.toggle('open');
+    menu.classList.toggle('open');
+  });
+
+  // Cerrar el menú al hacer click en un enlace
+  menu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      toggle.classList.remove('open');
+      menu.classList.remove('open');
+    });
+  });
+})();
+
 // ══════════════════════════════════════════
 // FONDO ANIMADO — Sección Nosotros Neomind
 // Bokeh violeta + red de líneas + pulsos
